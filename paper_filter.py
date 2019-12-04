@@ -1,4 +1,8 @@
 import os
+import argparse
+parser = parser = argparse.ArgumentParser(description="paper filter")
+parser.add_argument('--list', '-l', type=str, default='./paperlists/conferences.txt')
+args = parser.parse_args()
 
 def is_blank(ch):
 	blank_ch = [' ', '\t', '\n']
@@ -63,7 +67,7 @@ def clear_screen():
 
 
 lists = []
-with open('./paperlists/arxiv-cs.txt', 'r', encoding='utf-8') as f:
+with open(args.list, 'r', encoding='utf-8') as f:
 	titles = f.read().split('\n')
 	for title in titles:
 		words = clean_split(title)
@@ -72,7 +76,7 @@ with open('./paperlists/arxiv-cs.txt', 'r', encoding='utf-8') as f:
 			clean_title += word + ' '
 		clean_title = clean_title[:-1].lower()
 		lists.append(clean_title)
-print('num_papers:', len(lists))
+print('{0} papers loaded in total.'.format(len(lists)))
 exit = False
 exit_string = ['exit', 'quit', 'bye']
 indent = '    '
