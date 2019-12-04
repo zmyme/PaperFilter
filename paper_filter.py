@@ -63,7 +63,7 @@ def clear_screen():
 
 
 lists = []
-with open('all_papers.txt', 'r', encoding='utf-8') as f:
+with open('./paperlists/arxiv-cs.CV.txt', 'r', encoding='utf-8') as f:
 	titles = f.read().split('\n')
 	for title in titles:
 		words = clean_split(title)
