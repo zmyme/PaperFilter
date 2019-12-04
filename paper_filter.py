@@ -63,7 +63,7 @@ def clear_screen():
 
 
 lists = []
-with open('./paperlists/arxiv-cs.CV.txt', 'r', encoding='utf-8') as f:
+with open('./paperlists/arxiv-cs.txt', 'r', encoding='utf-8') as f:
 	titles = f.read().split('\n')
 	for title in titles:
 		words = clean_split(title)
@@ -72,7 +72,7 @@ with open('./paperlists/arxiv-cs.CV.txt', 'r', encoding='utf-8') as f:
 			clean_title += word + ' '
 		clean_title = clean_title[:-1].lower()
 		lists.append(clean_title)
-
+print('num_papers:', len(lists))
 exit = False
 exit_string = ['exit', 'quit', 'bye']
 indent = '    '
